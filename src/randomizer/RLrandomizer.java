@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RLrandomizer {
 	
@@ -35,13 +36,8 @@ public class RLrandomizer {
 	
 	private double transSpeed;
 	private JTextField transSpeedTextField;
+
 	
-	
-
-
-
-
-
 	
 	/**
 	 * Launch the application.
@@ -152,12 +148,31 @@ public class RLrandomizer {
 	}
 	
 	private void setTags() {
-		System.out.println("btn pressed");
 		
-		FOV =(int) (Math.random()*100);
-		
+		FOV = ThreadLocalRandom.current().nextInt(60, 110 + 1);
 		FOVtextField.setText(Integer.toString(FOV));
+
+		distance = ThreadLocalRandom.current().nextInt(10, 40 + 1)*10;
+		distanceTextField.setText(Integer.toString(distance));
+		
+		height = ThreadLocalRandom.current().nextInt(4, 20 + 1)*10;
+		heightTextField.setText(Integer.toString(height));
+		
+		angle = ThreadLocalRandom.current().nextInt(-15, 0 + 1);
+		angleTextField.setText(Integer.toString(angle));
+		
+		stiffness = ((double)(Math.round((Math.random()*100)/5))*5)/100;
+		stiffnessTextField.setText(String.format("%.2f", stiffness));
+		
+		swivSpeed = (double)Math.round(ThreadLocalRandom.current().nextDouble(1,10)*10)/10;
+		swivSpeedTextField.setText(String.format("%.2f", swivSpeed));
+		
+		transSpeed = (double)Math.round(ThreadLocalRandom.current().nextDouble(1,2)*10)/10;
+		transSpeedTextField.setText(String.format("%.2f", transSpeed));
+		
+		
 		
 		
 	}
+	
 }
