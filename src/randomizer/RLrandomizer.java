@@ -3,6 +3,7 @@ package randomizer;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
@@ -12,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.util.concurrent.ThreadLocalRandom;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class RLrandomizer {
 	
@@ -66,7 +69,12 @@ public class RLrandomizer {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
+		frame = new JFrame("Rocket League Settings Randomizer");
+		try {
+			frame.setIconImage(ImageIO.read(new File("src/images/rlricon.png")));
+		}catch(Exception e) {
+			
+		}
 		frame.setBounds(100, 100, 450, 374);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -79,71 +87,71 @@ public class RLrandomizer {
 			}
 		});
 		
-		btnGenerate.setBounds(175, 260, 100, 23);
+		btnGenerate.setBounds(175, 286, 100, 23);
 		
 		frame.getContentPane().add(btnGenerate);
 		
 		JLabel FOVLabel = new JLabel("Field of View:");
-		FOVLabel.setBounds(33, 27, 100, 14);
+		FOVLabel.setBounds(33, 53, 100, 14);
 		frame.getContentPane().add(FOVLabel);
 		
 		FOVtextField = new JTextField();
-		FOVtextField.setBounds(150, 24, 86, 20);
+		FOVtextField.setBounds(150, 50, 86, 20);
 		frame.getContentPane().add(FOVtextField);
 		FOVtextField.setColumns(10);
 		
 		JLabel distanceLabel = new JLabel("Distance:");
-		distanceLabel.setBounds(33, 55, 100, 14);
+		distanceLabel.setBounds(33, 81, 100, 14);
 		frame.getContentPane().add(distanceLabel);
 		
 		distanceTextField = new JTextField();
 		distanceTextField.setColumns(10);
-		distanceTextField.setBounds(150, 52, 86, 20);
+		distanceTextField.setBounds(150, 78, 86, 20);
 		frame.getContentPane().add(distanceTextField);
 		
 		JLabel heightLabel = new JLabel("Height:");
-		heightLabel.setBounds(33, 83, 100, 14);
+		heightLabel.setBounds(33, 109, 100, 14);
 		frame.getContentPane().add(heightLabel);
 		
 		heightTextField = new JTextField();
 		heightTextField.setColumns(10);
-		heightTextField.setBounds(150, 80, 86, 20);
+		heightTextField.setBounds(150, 106, 86, 20);
 		frame.getContentPane().add(heightTextField);
 		
 		JLabel angleLabel = new JLabel("Angle:");
-		angleLabel.setBounds(33, 111, 100, 14);
+		angleLabel.setBounds(33, 137, 100, 14);
 		frame.getContentPane().add(angleLabel);
 		
 		angleTextField = new JTextField();
 		angleTextField.setColumns(10);
-		angleTextField.setBounds(150, 108, 86, 20);
+		angleTextField.setBounds(150, 134, 86, 20);
 		frame.getContentPane().add(angleTextField);
 		
 		JLabel stiffnessLabel = new JLabel("Stiffness:");
-		stiffnessLabel.setBounds(33, 139, 100, 14);
+		stiffnessLabel.setBounds(33, 165, 100, 14);
 		frame.getContentPane().add(stiffnessLabel);
 		
 		stiffnessTextField = new JTextField();
 		stiffnessTextField.setColumns(10);
-		stiffnessTextField.setBounds(150, 136, 86, 20);
+		stiffnessTextField.setBounds(150, 162, 86, 20);
 		frame.getContentPane().add(stiffnessTextField);
 		
 		JLabel swivSpeedLabel = new JLabel("Swivel Speed:");
-		swivSpeedLabel.setBounds(33, 167, 100, 14);
+		swivSpeedLabel.setBounds(33, 193, 100, 14);
 		frame.getContentPane().add(swivSpeedLabel);
 		
 		swivSpeedTextField = new JTextField();
 		swivSpeedTextField.setColumns(10);
-		swivSpeedTextField.setBounds(150, 164, 86, 20);
+		swivSpeedTextField.setBounds(150, 190, 86, 20);
 		frame.getContentPane().add(swivSpeedTextField);
 		
 		JLabel transSpeedLabel = new JLabel("Transition Speed:");
-		transSpeedLabel.setBounds(33, 195, 100, 14);
+		transSpeedLabel.setBounds(33, 221, 100, 14);
 		frame.getContentPane().add(transSpeedLabel);
 		
 		transSpeedTextField = new JTextField();
 		transSpeedTextField.setColumns(10);
-		transSpeedTextField.setBounds(150, 192, 86, 20);
+		transSpeedTextField.setBounds(150, 218, 86, 20);
 		frame.getContentPane().add(transSpeedTextField);
 	}
 	
